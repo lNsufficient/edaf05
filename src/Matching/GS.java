@@ -21,7 +21,7 @@ public class GS {
 			e.printStackTrace();
 		}
 		
-		
+		System.out.println("Test");
 		
 		LinkedList<Integer> menList = new LinkedList<Integer>();
 		
