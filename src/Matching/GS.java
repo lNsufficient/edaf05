@@ -2,10 +2,12 @@ package Matching;
 
 import java.util.LinkedList;
 
-public class MatchCouples {
+public class GS {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+
+		//Read the names;
+		
 		LinkedList<Integer> menList = new LinkedList<Integer>();
 		
 		
