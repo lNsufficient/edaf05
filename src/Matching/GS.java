@@ -10,18 +10,26 @@ public class GS {
 	public static void main(String[] args) {
 
 		//Read the names;
-		File file = new File(args[0]);
+		File file = new File("data\\" + args[0] + ".txt");
 		Scanner scan;
 		try {
 			scan = new Scanner(file);
 			while(scan.hasNextLine()){
-				System.out.println(scan.nextLine());
+				String currentLine = scan.nextLine();
+				if (currentLine.length() > 0) {
+					if (currentLine.charAt(0) == '#'){
+						System.out.println("h");
+					} else {
+						System.out.println(currentLine);
+					}
+				}
+					
+				
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 		
-		System.out.println("Test");
 		
 		LinkedList<Integer> menList = new LinkedList<Integer>();
 		
