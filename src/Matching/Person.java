@@ -20,6 +20,11 @@ public class Person {
 		} 
 	}
 	
+	public Person(int nbr, String name){
+		this.nbr = nbr;
+		this.name = name;
+	}
+	
 	public int getNumber(){
 		return nbr;
 	}
