@@ -21,7 +21,8 @@ public class GS {
 				String currentLine = scan.nextLine();
 				if (currentLine.length() > 0) {
 					if (currentLine.charAt(0) != '#'){
-						n = Character.getNumericValue(currentLine.charAt(2));
+						String[] split = currentLine.split("=");
+						n = Integer.parseInt(split[1]);
 						break;
 					}
 				}
