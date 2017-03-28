@@ -61,6 +61,9 @@ public class Person {
 			if (prefs[j] == prefNbr) {
 				oldi = i;
 				i = prefNbr;
+				if (oldi == prefs.length) {
+					return -2;
+				}
 				return prefs[oldi];
 			}		
 		}

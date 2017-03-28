@@ -63,13 +63,15 @@ public class GS {
 			//Do the thing:
 			while (!menStack.isEmpty()) {
 				Person m = menStack.pop();
-				boolean wAccepts;
+				int wOldMan;
 				Person w;
 				do {
 				w = personList.get(m.getNextPref()-1);
-				wAccepts = w.findPref(m.getNumber());
-				} while (!wAccepts);
-				
+				wOldMan = w.findPref(m.getNumber());
+				} while (wOldMan != -1);
+				if (wOldMan != -2) {
+					menStack.push(personList.get(wOldMan));
+				}
 			}
 			
 			
