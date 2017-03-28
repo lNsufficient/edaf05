@@ -2,6 +2,9 @@ package Matching;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -70,11 +73,27 @@ public class GS {
 					wOldMan = w.findPref(m.getNumber());
 				} while (wOldMan == -1);
 				if (wOldMan != -2) {
-						menStack.push(personList.get(wOldMan));
+						menStack.push(personList.get(wOldMan-1));
 				}
 			}
 			
 			System.out.println("Magically, we survived.");
+			String outFileName = "data\\" + args[0] + "NEW.txt";
+			try {
+				PrintWriter writer = new PrintWriter(outFileName, "UTF-8");
+				for (int i = 0; i < 2*n; i = i + 2) {
+					Person m = personList.get(i);
+					Person w = personList.get(m.getMatch()-1);
+					String outString = m.getName() + " -- " + w.getName();
+					writer.println(outString);
+					System.out.println(outString);
+				}
+				writer.close();
+			} catch (IOException e) {
+				System.exit(0);
+			}
+			
+			
 			
 			
 		} catch (FileNotFoundException e) {

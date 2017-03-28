@@ -47,6 +47,9 @@ public class Person {
 	}
 	
 	public int getNextPref(){
+		if (!isMale) {
+			System.out.println("Calling for male function for female.");
+		}
 		i++;
 		if (i >= prefs.length) {
 			return -1;
@@ -63,7 +66,7 @@ public class Person {
 			
 			if (prefs[j] == prefNbr) {
 				oldi = i;
-				i = prefNbr;
+				i = j;
 				if (oldi == prefs.length) {
 					return -2;
 				}
@@ -71,5 +74,13 @@ public class Person {
 			}		
 		}
 		return oldi;
+	}
+	
+	public int geti() {
+		return i;
+	}
+	
+	public int getMatch() {
+		return prefs[i];
 	}
 }
