@@ -15,7 +15,7 @@ public class GS {
 	public static void main(String[] args) {
 
 		//Read the names;
-		File file = new File("data\\" + args[0] + ".txt");
+		File file = new File("data/" + args[0] + ".txt");
 		Scanner scan;
 		int n = 0;
 		ArrayList<Person> personList;
@@ -45,20 +45,21 @@ public class GS {
 				}
 				
 			}
-			System.out.println("Showing persons");
+			//System.out.println("Showing persons");
 			for (Person person:personList){
-				System.out.println(person.getNumber() + " " + person.getName());
+				//System.out.println(person.getNumber() + " " + person.getName());
 			}
 			scan.nextLine();
 			
 			for (int i = 0; i < 2*n; i++){//reads the lines containing preferences
 				String pref = scan.nextLine();
 				String[] split = pref.split(":");
-				System.out.print(split[0]);
-				System.out.println(split[1]);
+				int index = Integer.parseInt(split[0])-1;
+				//System.out.print(split[0]);
+				//System.out.println(split[1]);
 				Scanner scan2 = new Scanner(split[1]);
 				while(scan2.hasNext()){
-					personList.get(i).addPreference(scan2.nextInt());
+					personList.get(index).addPreference(scan2.nextInt());
 				}
 				scan2.close();
 			}
@@ -77,8 +78,8 @@ public class GS {
 				}
 			}
 			
-			System.out.println("Magically, we survived.");
-			String outFileName = "data\\" + args[0] + "NEW.txt";
+			//System.out.println("Magically, we survived.");
+			String outFileName = "data/" + args[0] + "NEW.txt";
 			outFileName = outFileName.replace("-inNEW","-outNEW");
 			try {
 				PrintWriter writer = new PrintWriter(outFileName, "UTF-8");
@@ -87,7 +88,7 @@ public class GS {
 					Person w = personList.get(m.getMatch()-1);
 					String outString = m.getName() + " -- " + w.getName();
 					writer.println(outString);
-					System.out.println(outString);
+					//System.out.println(outString);
 				}
 				writer.close();
 			} catch (IOException e) {
