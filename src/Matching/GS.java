@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class GS {
 
@@ -14,7 +15,7 @@ public class GS {
 		File file = new File("data\\" + args[0] + ".txt");
 		Scanner scan;
 		int n = 0;
-		ArrayList<Person> personList = new ArrayList<Person>();
+		ArrayList<Person> personList;
 		try {
 			scan = new Scanner(file);
 			while(scan.hasNextLine()){ //Skips lines starting with # and reads the line "n=?"
@@ -27,13 +28,21 @@ public class GS {
 					}
 				}
 			}
+			personList = new ArrayList<Person>(n*2);
+			Stack<Person> menStack = new Stack<Person>();
 			for (int i = 0; i < 2*n; i++){//reads the lines which corresponds each name to a number
 				String currentLine = scan.nextLine();
 				String[] split = currentLine.split(" ");
 				int nbr = Integer.parseInt(split[0]);
 				String name = split[1];
-				personList.add(new Person(nbr, name, n, ((1-i%2)==1)));
+				boolean isMale = ((1-i%2)==1);
+				personList.add(new Person(nbr, name, n, isMale));
+				if (isMale) {
+					menStack.push(personList.get(i));
+				}
+				
 			}
+			System.out.println("Showing persons");
 			for (Person person:personList){
 				System.out.println(person.getNumber() + " " + person.getName());
 			}
@@ -50,12 +59,24 @@ public class GS {
 				}
 				scan2.close();
 			}
+			
+			//Do the thing:
+			while (!menStack.isEmpty()) {
+				Person m = menStack.pop();
+				boolean wAccepts;
+				Person w;
+				do {
+				w = personList.get(m.getNextPref()-1);
+				wAccepts = w.findPref(m.getNumber());
+				} while (!wAccepts);
+				
+			}
+			
+			
+			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		
-		
-		LinkedList<Integer> menList = new LinkedList<Integer>();
 		
 		
 	}

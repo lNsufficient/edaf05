@@ -18,7 +18,7 @@ public class Person {
 		if (isMale){
 			this.i = -1;
 		} else {
-			this.i = prefs.length - 1;
+			this.i = prefs.length;
 		} 
 	}
 	
@@ -55,13 +55,15 @@ public class Person {
 		}
 	}
 	
-	public boolean findPref(int prefNbr) {
+	public int findPref(int prefNbr) {
+		int oldi = -1;
 		for(int j = i-1; j >= 0; j--){
 			if (prefs[j] == prefNbr) {
+				oldi = i;
 				i = prefNbr;
-				return true;
+				return prefs[oldi];
 			}		
 		}
-		return false;
+		return oldi;
 	}
 }
