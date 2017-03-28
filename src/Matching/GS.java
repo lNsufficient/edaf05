@@ -66,14 +66,15 @@ public class GS {
 				int wOldMan;
 				Person w;
 				do {
-				w = personList.get(m.getNextPref()-1);
-				wOldMan = w.findPref(m.getNumber());
-				} while (wOldMan != -1);
+					w = personList.get(m.getNextPref()-1);
+					wOldMan = w.findPref(m.getNumber());
+				} while (wOldMan == -1);
 				if (wOldMan != -2) {
-					menStack.push(personList.get(wOldMan));
+						menStack.push(personList.get(wOldMan));
 				}
 			}
 			
+			System.out.println("Magically, we survived.");
 			
 			
 		} catch (FileNotFoundException e) {

@@ -58,6 +58,9 @@ public class Person {
 	public int findPref(int prefNbr) {
 		int oldi = -1;
 		for(int j = i-1; j >= 0; j--){
+			if (j == 4)
+				System.out.println("FAIL");
+			
 			if (prefs[j] == prefNbr) {
 				oldi = i;
 				i = prefNbr;
