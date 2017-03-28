@@ -79,6 +79,7 @@ public class GS {
 			
 			System.out.println("Magically, we survived.");
 			String outFileName = "data\\" + args[0] + "NEW.txt";
+			outFileName = outFileName.replace("-inNEW","-outNEW");
 			try {
 				PrintWriter writer = new PrintWriter(outFileName, "UTF-8");
 				for (int i = 0; i < 2*n; i = i + 2) {
