@@ -7,11 +7,13 @@ public class Person {
 	String name;
 	int i;
 	boolean isMale;
+	int scanIndex;
 	
 	public Person(int nbr, String name, int n, boolean isMale){
 		this.nbr = nbr;
 		this.name = name;
 		this.prefs = new int[n];
+		this.scanIndex = 0;
 		this.isMale = isMale;
 		if (isMale){
 			this.i = -1;
@@ -20,9 +22,20 @@ public class Person {
 		} 
 	}
 	
+	
 	public Person(int nbr, String name){
 		this.nbr = nbr;
 		this.name = name;
+	}
+	
+	public boolean addPreference(int pref) {
+		if (scanIndex == prefs.length) {
+			return false;
+		}
+		prefs[scanIndex] = pref;
+		scanIndex++;
+		return true;
+		
 	}
 	
 	public int getNumber(){
