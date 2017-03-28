@@ -32,7 +32,7 @@ public class GS {
 				String[] split = currentLine.split(" ");
 				int nbr = Integer.parseInt(split[0]);
 				String name = split[1];
-				personList.add(new Person(nbr, name));
+				personList.add(new Person(nbr, name, n, ((1-i%2)==1)));
 			}
 			for (Person person:personList){
 				System.out.println(person.getNumber() + " " + person.getName());
@@ -46,7 +46,7 @@ public class GS {
 				System.out.println(split[1]);
 				Scanner scan2 = new Scanner(split[1]);
 				while(scan2.hasNext()){
-					System.out.println(scan2.nextInt());
+					personList.get(i).addPreference(scan2.nextInt());
 				}
 				scan2.close();
 			}
