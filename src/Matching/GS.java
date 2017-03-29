@@ -58,8 +58,10 @@ public class GS {
 				//System.out.print(split[0]);
 				//System.out.println(split[1]);
 				Scanner scan2 = new Scanner(split[1]);
+				int rankCounter = 0;
 				while(scan2.hasNext()){
-					personList.get(index).addPreference(scan2.nextInt());
+					personList.get(index).addPreference(scan2.nextInt(), rankCounter);
+					rankCounter++;
 				}
 				scan2.close();
 			}
@@ -78,7 +80,7 @@ public class GS {
 				}
 			}
 			
-			//System.out.println("Magically, we survived.");
+			System.out.println("Magically, we survived.");
 			String outFileName = "data/" + args[0] + "NEW.txt";
 			outFileName = outFileName.replace("-inNEW","-outNEW");
 			try {
