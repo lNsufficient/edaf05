@@ -8,8 +8,8 @@ public class sUSA{
 	
 	
 	public static void main(String args[]) {
-//		File file = new File("../data/USA-highway-miles.txt");
-		File file = new File("../data/tinyEWG-alpha.txt");
+		File file = new File("../data/USA-highway-miles.txt");
+//		File file = new File("../data/tinyEWG-alpha.txt");
 		Scanner scan;
 		ArrayList<Edge> edges = new ArrayList<Edge>();
 		ArrayList<String> towns = new ArrayList<String>();
