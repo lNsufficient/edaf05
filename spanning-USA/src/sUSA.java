@@ -8,8 +8,8 @@ public class sUSA{
 	
 	
 	public static void main(String args[]) {
-		File file = new File("../data/USA-highway-miles.txt");
-		System.out.print("[]");
+//		File file = new File("../data/USA-highway-miles.txt");
+		File file = new File("../data/tinyEWG-alpha.txt");
 		Scanner scan;
 		ArrayList<Edge> edges = new ArrayList<Edge>();
 		ArrayList<String> towns = new ArrayList<String>();
@@ -48,9 +48,12 @@ public class sUSA{
 					edges.add(tmpEdge);
 				} else {
 					String newTown = split[0];
-					newTown = newTown.substring(0, newTown.length()-1);
+                    char lastChar = newTown.charAt(newTown.length()-1);
+                    if (lastChar == ' ') {
+    					newTown = newTown.substring(0, newTown.length()-1);
+                    }
 					System.out.print("New town:");
-					System.out.println(newTown+":");
+					System.out.print(newTown+":");
 					towns.add(newTown);
 					System.out.println(towns.indexOf(newTown));
 					
@@ -70,11 +73,12 @@ public class sUSA{
 				int l0 = uf.find(uv[0]);
 				int l1 = uf.find(uv[1]);
 				if (l0 != l1) {
+                    System.out.println("Connecting:" + uv[0] + ":" + uv[1]);
 					totalLength+=tmpEdge.getCost();
 					uf.union(l0,l1);
-					System.out.println("Differents stuff");
+				//	System.out.println("Differents stuff");
 				} else {
-					System.out.println("Sames stuff");
+//					System.out.println("Sames stuff");
 				}
 			}
 			

@@ -7,7 +7,7 @@ public class UF{
 	ArrayList<LinkedList> items;
 	
 	public UF(int n){
-		System.out.println(n);
+		//System.out.println(n);
 		sets = new int[n];
 		for (int i = 0; i < n; i++) {
 			sets[i] = i;
@@ -31,8 +31,9 @@ public class UF{
 	
 	public void union(int x, int y) {
 		int small, llong;
-		System.out.println(x + " " + y);
-		System.out.println(sizes[x] + " " + sizes[y]);
+		//System.out.println(x + " " + y);
+		//System.out.println(sets[x] + " " + sets[y]);
+		//System.out.println(sizes[x] + " " + sizes[y]);
 		
 		
 		if (sizes[x] < sizes[y]) {
@@ -53,7 +54,7 @@ public class UF{
 		sizes[llong] += sizes[small];
 		sizes[small] = 0;
 		
-		System.out.println(sizes[x] + " " + sizes[y]);
+		//System.out.println(sizes[x] + " " + sizes[y]);
 	}
 	
 }
